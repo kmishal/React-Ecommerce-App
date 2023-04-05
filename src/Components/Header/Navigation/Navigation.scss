@@ -1,0 +1,26 @@
+@import '../../../styles/variables';
+.nav {
+    &__list {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        &-item {
+            margin-left: 40px;
+            a {
+                color: $black;
+                transition: all 0.3s ease-in linear;
+                &:hover {
+                    text-decoration: underline;
+                }
+            }
+            &.active,
+            &:hover {
+                a {
+                    font-weight: $fnt-600;
+                    color: $pink;
+                    transition: all 0.3s ease-in linear;
+                }
+            }
+        }
+    }
+}

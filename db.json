@@ -1,0 +1,24 @@
+{
+    "products": [
+        {
+            "id": 1,
+            "vendor": "VERO MODA",
+            "product_title": "Blue Soft Knit Sweater",
+            "price": 2299,
+            "compare_price": null,
+            "collections": [
+                "Women"
+            ]
+        },
+        {
+            "id": 2,
+            "vendor": "Forever 21",
+            "product_title": "Plush body-hug sweater",
+            "price": 1799,
+            "compare_price": 2299,
+            "collections": [
+                "Women"
+            ]
+        }
+    ]
+}

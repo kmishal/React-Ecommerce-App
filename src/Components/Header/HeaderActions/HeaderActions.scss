@@ -1,0 +1,10 @@
+@import '../../../styles/variables';
+
+.header__actions {
+    a {
+        color: $pink;
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+}

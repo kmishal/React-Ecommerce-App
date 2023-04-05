@@ -1,0 +1,32 @@
+@import '../../styles/variables';
+.product__grid-layout {
+    padding: 64px 0;
+    .product__main__info {
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        font-weight: $fnt-600;
+        .dot {
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            margin: 0 16px;
+            background: $pink;
+        }
+        &-title {
+            font-size: 23px;
+            text-transform: uppercase;
+        }
+        &-product__count {
+            color: $pink;
+            font-size: 14px;
+        }
+    }
+    .product__card__wrapper {
+        padding-top: 40px;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 32px;
+    }
+}

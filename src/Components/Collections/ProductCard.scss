@@ -1,0 +1,96 @@
+@import '../../styles/variables';
+
+.product__card {
+    &__image-aspectSize {
+        padding-top: 130%;
+        position: relative;
+    }
+    &-image {
+        img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+    &-rating {
+        padding: 4px 8px;
+        border-radius: 4px;
+        background: $white;
+        position: absolute;
+        bottom: 11px;
+        left: 10px;
+        span {
+            display: inline-block;
+            vertical-align: middle;
+            &:first-child {
+                margin-right: 4px;
+            }
+        }
+    }
+
+    &-whishList {
+        position: absolute;
+        bottom: 11px;
+        right: 10px;
+        cursor: pointer;
+        &:hover {
+            svg {
+                fill: $pink;
+            }
+        }
+    }
+    &-details {
+        margin-top: 16px;
+    }
+    &-vendor {
+        font-weight: $fnt-600;
+        line-height: 24px;
+    }
+    &-title {
+        margin-top: 4px;
+        line-height: 24px;
+        color: $grey;
+    }
+    &-price__wrapper {
+        margin-top: 16px;
+        color: $pink;
+        font-weight: $fnt-600;
+        line-height: 24px;
+        span {
+            display: inline-block;
+            vertical-align: middle;
+        }
+        .compare__price {
+            text-decoration: line-through;
+            color: $grey;
+            margin-right: 8px;
+        }
+    }
+    form {
+        margin-top: 16px;
+        button {
+            &[type='submit'] {
+                width: 100%;
+                padding: 8px;
+                border: 0;
+                background: $black;
+                color: $white;
+                font-size: 14px;
+                line-height: 24px;
+                font-weight: $fnt-600;
+                cursor: pointer;
+                transition: all 0.3s ease-in;
+                border-radius: $border-radius;
+                &:hover {
+                    transition: all 0.3s ease-in;
+                    background: rgba($color: $black, $alpha: 0.6);
+                }
+            }
+        }
+    }
+}
