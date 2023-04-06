@@ -1,9 +1,14 @@
 import './ProductCard.scss';
-import productImage from '../../images/product-image.png';
+// import productImage from '../../images/product-image.png';
 import StarIcon from '../Common/StarIcon';
 import WhishListIcon from '../Common/WhishListIcon';
+import CustomImage from '../Common/CustomImage';
 
-export default function ProductCard() {
+export default function ProductCard({ product }) {
+    let discountPrice = Math.ceil(
+        product.price - (product.price * product.discountPercentage) / 100
+    );
+
     const handleFormSubmit = function (productId, e) {
         e.preventDefault();
         console.log(productId);
@@ -15,15 +20,21 @@ export default function ProductCard() {
             <div className="product__card__image__wrapper pos-relative ">
                 <div className="product__card__image-aspectSize">
                     <div className="product__card-image">
-                        <img src={productImage} alt="Title" loading="lazy" />
+                        <CustomImage
+                            imgUrl={product.images[0]}
+                            title={product.title}
+                        />
                     </div>
                 </div>
-                <div className="product__card-rating">
-                    <span>
-                        <StarIcon />
-                    </span>
-                    <span> 4.5</span>
-                </div>
+                {product.rating && (
+                    <div className="product__card-rating">
+                        <span>
+                            <StarIcon />
+                        </span>
+                        <span> {product.rating}</span>
+                    </div>
+                )}
+
                 <div className="product__card-whishList">
                     <span>
                         <WhishListIcon />
@@ -32,15 +43,23 @@ export default function ProductCard() {
             </div>
             <div className="product__card-details">
                 {/* Product Vendor */}
-                <h4 className="product__card-vendor">VERO MODA</h4>
+                <h4 className="product__card-vendor">{product.brand}</h4>
                 {/* Product Title */}
-                <p className="product__card-title">Blue Soft Knit Sweater</p>
+                <p className="product__card-title">{product.title}</p>
                 <p className="product__card-price__wrapper">
-                    <span className="compare__price">Rs. 2299</span>
-                    <span className="price">Rs. 1790</span>
+                    {product.discountPercentage ? (
+                        <>
+                            <span className="compare__price">
+                                Rs. {product.price}
+                            </span>
+                            <span className="price">Rs. {discountPrice}</span>
+                        </>
+                    ) : (
+                        <span className="price">Rs. {discountPrice}</span>
+                    )}
                 </p>
-                <form onSubmit={(e) => handleFormSubmit(1, e)}>
-                    <input type="hidden" value="1" />
+                <form onSubmit={(e) => handleFormSubmit(product.id, e)}>
+                    <input type="hidden" name="id" value={product.id} />
                     <button type="submit">Add to cart</button>
                 </form>
             </div>
