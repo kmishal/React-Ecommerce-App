@@ -3,15 +3,18 @@ import './ProductCard.scss';
 import StarIcon from '../Common/StarIcon';
 import WhishListIcon from '../Common/WhishListIcon';
 import CustomImage from '../Common/CustomImage';
+import { useContext } from 'react';
+import { appContext } from '../../Helpers/Context/AppContext';
 
 export default function ProductCard({ product }) {
+    const { setDrawerType } = useContext(appContext);
     let discountPrice = Math.ceil(
         product.price - (product.price * product.discountPercentage) / 100
     );
 
     const handleFormSubmit = function (productId, e) {
         e.preventDefault();
-        console.log(productId);
+        setDrawerType('cart-drawer');
     };
 
     return (

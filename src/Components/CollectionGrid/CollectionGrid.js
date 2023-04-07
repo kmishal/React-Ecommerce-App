@@ -1,5 +1,5 @@
 import './CollectionGrid.scss';
-import ProductCard from './ProductCard';
+import ProductCard from '../ProductCard/ProductCard';
 import { useEffect, useState } from 'react';
 import { FetchData } from '../../Helpers/Api';
 
