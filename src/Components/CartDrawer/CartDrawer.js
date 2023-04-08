@@ -8,7 +8,7 @@ export default function CartDrawer() {
 
     let cartDrawerContent = (
         <div className="cart__drawer__empty-cart">
-            <p class="empty__cart-message">Your Shopping List is Empty</p>
+            <p className="empty__cart-message">Your Shopping List is Empty</p>
             <div
                 className="continue__shopping"
                 onClick={() => setDrawerType(null)}
