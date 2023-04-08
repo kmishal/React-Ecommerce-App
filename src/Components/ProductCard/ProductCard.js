@@ -6,7 +6,7 @@ import CustomImage from '../Common/CustomImage';
 import { useContext } from 'react';
 import { appContext } from '../../Helpers/Context/AppContext';
 
-export default function ProductCard({ product }) {
+const ProductCard = function ({ product }) {
     const { setDrawerType } = useContext(appContext);
     let discountPrice = Math.ceil(
         product.price - (product.price * product.discountPercentage) / 100
@@ -68,4 +68,6 @@ export default function ProductCard({ product }) {
             </div>
         </div>
     );
-}
+};
+
+export default ProductCard;
