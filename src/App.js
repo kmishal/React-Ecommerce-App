@@ -1,5 +1,5 @@
 import Header from './Components/Header/Header';
-import DrawerManager from './Helpers/DrawerManager';
+import DrawerManager from './Components/Common/Drawer/DrawerManager';
 import Collections from './Pages/Collections/Collections';
 import './App.scss';
 import AppContext from './Helpers/Context/AppContext';

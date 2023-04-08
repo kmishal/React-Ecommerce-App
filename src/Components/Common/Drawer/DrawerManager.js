@@ -1,5 +1,5 @@
-import Drawer from '../Components/Common/Drawer/Drawer';
-import CartDrawer from '../Components/CartDrawer/CartDrawer';
+import Drawer from './Drawer';
+import CartDrawer from '../../CartDrawer/CartDrawer';
 import { createPortal } from 'react-dom';
 
 export default function DrawerManager() {
