@@ -1,21 +1,35 @@
 import './Drawer.scss';
+import { appContext } from '../../../Helpers/Context/AppContext';
+import { useContext } from 'react';
 
-export default function Drawer({
-    children,
-    drawerTitle,
-    drawerType,
-    drawerIdentifier,
-}) {
-    const setDrawerActive = drawerType === drawerIdentifier;
+export default function Drawer({ children, drawerTitle, drawerName }) {
+    const { drawerType, setDrawerType } = useContext(appContext);
+    const setDrawerActive = drawerName === drawerType;
+
+    const closeDrawer = (e) => {
+        const targetEl = e.target;
+        const hasDrawerTypeAttribute = targetEl.hasAttribute('drawer-type');
+        if (hasDrawerTypeAttribute) {
+            setDrawerType(null);
+        }
+    };
+
+    document.addEventListener('keyup', (e) => {
+        e.key === 'Escape' && setDrawerType(null);
+    });
+
     return (
-        <div
-            className={`drawer ${setDrawerActive ? 'drawer-active' : ''}`}
-            drawer-type={drawerType}
-        >
-            <div className="drawer__container">
-                <div className="drawer__header">{drawerTitle}</div>
-                <div className="drawer__body">{children}</div>
+        setDrawerActive && (
+            <div
+                className="drawer"
+                drawer-type={drawerName}
+                onClick={closeDrawer}
+            >
+                <div className="drawer__container">
+                    <div className="drawer__header">{drawerTitle}</div>
+                    <div className="drawer__body">{children}</div>
+                </div>
             </div>
-        </div>
+        )
     );
 }
