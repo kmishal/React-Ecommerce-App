@@ -5,16 +5,40 @@ import WhishListIcon from '../Common/WhishListIcon';
 import CustomImage from '../Common/CustomImage';
 import { useContext } from 'react';
 import { appContext } from '../../Helpers/Context/AppContext';
+import { AddProductToCart } from '../../Helpers/Helper';
 
 const ProductCard = function ({ product }) {
-    const { setDrawerType } = useContext(appContext);
+    const { setDrawerType, setCartItems } = useContext(appContext);
     let discountPrice = Math.ceil(
         product.price - (product.price * product.discountPercentage) / 100
     );
 
     const handleFormSubmit = function (productId, e) {
         e.preventDefault();
-        setDrawerType('cart-drawer');
+        AddProductToCart(productId, ({ data }) => {
+            let productData = { ...data };
+            if (!productData.hasOwnProperty('quantity')) {
+                productData['quantity'] = 1;
+            }
+            setCartItems((prevCartItems) => {
+                const isItemPresent = prevCartItems.find(
+                    (item) => item.id === productData.id
+                );
+                if (isItemPresent) {
+                    return prevCartItems.map((item) => {
+                        if (item.id === productData.id) {
+                            item.quantity += 1;
+                            return item;
+                        } else {
+                            return item;
+                        }
+                    });
+                } else {
+                    return [productData, ...prevCartItems];
+                }
+            });
+            setDrawerType('cart-drawer');
+        });
     };
 
     return (

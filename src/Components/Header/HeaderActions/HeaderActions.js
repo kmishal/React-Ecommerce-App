@@ -1,6 +1,9 @@
 import './HeaderActions.scss';
-
+import { appContext } from '../../../Helpers/Context/AppContext';
+import { useContext } from 'react';
 export default function HeaderAction() {
+    const { setDrawerType } = useContext(appContext);
+
     return (
         <div className="header__actions">
             <span>
@@ -9,6 +12,9 @@ export default function HeaderAction() {
             /{' '}
             <span>
                 <a href="/">SignUp</a>
+            </span>
+            <span onClick={() => setDrawerType('cart-drawer')}>
+                View Cart Drawer
             </span>
         </div>
     );
