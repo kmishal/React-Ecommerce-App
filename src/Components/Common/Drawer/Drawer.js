@@ -19,17 +19,16 @@ export default function Drawer({ children, drawerTitle, drawerName }) {
     });
 
     return (
-        setDrawerActive && (
-            <div
-                className="drawer"
-                drawer-type={drawerName}
-                onClick={closeDrawer}
-            >
-                <div className="drawer__container">
-                    <div className="drawer__header">{drawerTitle}</div>
-                    <div className="drawer__body">{children}</div>
-                </div>
+        <div
+            className="drawer"
+            drawer-type={drawerName}
+            onClick={closeDrawer}
+            drawer-active={setDrawerActive ? 'true' : 'false'}
+        >
+            <div className="drawer__container">
+                <div className="drawer__header">{drawerTitle}</div>
+                <div className="drawer__body">{children}</div>
             </div>
-        )
+        </div>
     );
 }

@@ -1,12 +1,21 @@
 import { useContext } from 'react';
 import { appContext } from '../../Helpers/Context/AppContext';
 import LineItem from './LineItem';
+import './CartDrawer.scss';
 
 export default function CartDrawer() {
-    const { cartItems } = useContext(appContext);
+    const { cartItems, setDrawerType } = useContext(appContext);
 
     let cartDrawerContent = (
-        <div className="cart__drawer_empty-cart">Cart is Empty</div>
+        <div className="cart__drawer__empty-cart">
+            <p class="empty__cart-message">Your Shopping List is Empty</p>
+            <div
+                className="continue__shopping"
+                onClick={() => setDrawerType(null)}
+            >
+                Continue Shopping
+            </div>
+        </div>
     );
 
     if (cartItems.length > 0) {
@@ -15,5 +24,19 @@ export default function CartDrawer() {
         });
     }
 
-    return <div className="cart__drawer">{cartDrawerContent}</div>;
+    return (
+        <div className="cart__drawer">
+            <div className="cart__drawer__details-wrapper">
+                {cartDrawerContent}
+            </div>
+
+            {cartItems.length > 0 && (
+                <div className="cart__drawer__actions">
+                    <button className="cart__drawer__checkout" type="submit">
+                        Checkout
+                    </button>
+                </div>
+            )}
+        </div>
+    );
 }

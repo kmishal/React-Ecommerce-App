@@ -5,10 +5,10 @@ import { createPortal } from 'react-dom';
 export default function DrawerManager() {
     const DrawerElements = (
         <>
-            <Drawer drawerTitle="Cart Drawer" drawerName="cart-drawer">
+            <Drawer drawerTitle="Shopping Cart" drawerName="cart-drawer">
                 <CartDrawer />
             </Drawer>
-            <Drawer drawerTitle="Filter Drawer" drawerName="filter-drawer">
+            <Drawer drawerTitle="Filter" drawerName="filter-drawer">
                 <div>Filter drawer</div>
             </Drawer>
         </>

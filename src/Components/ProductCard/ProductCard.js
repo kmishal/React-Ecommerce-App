@@ -69,10 +69,10 @@ const ProductCard = function ({ product }) {
                 </div>
             </div>
             <div className="product__card-details">
-                {/* Product Vendor */}
-                <h4 className="product__card-vendor">{product.brand}</h4>
                 {/* Product Title */}
                 <p className="product__card-title">{product.title}</p>
+                {/* Product Vendor */}
+                <h4 className="product__card-vendor">{product.brand}</h4>
                 <p className="product__card-price__wrapper">
                     {product.discountPercentage ? (
                         <>
