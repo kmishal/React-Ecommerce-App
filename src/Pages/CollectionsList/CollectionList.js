@@ -1,7 +1,8 @@
+import CollectionListGrid from '../../Components/CollectionListGrid/CollectionListGrid';
 import './CollectionList.scss';
 
 const CollectionList = function () {
-    return <div>Collection List Page</div>;
+    return <CollectionListGrid />;
 };
 
 export default CollectionList;

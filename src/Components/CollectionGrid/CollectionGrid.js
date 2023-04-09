@@ -8,11 +8,18 @@ export default function CollectionGrid() {
     const productCount = productData ? productData.length : null;
     let productCards = null;
     useEffect(() => {
-        FetchData('https://dummyjson.com/products/?limit=50').then(
-            ({ data }) => {
+        const abortController = new AbortController();
+        FetchData('https://dummyjson.com/products/?limit=50', {
+            signal: abortController.signal,
+        })
+            .then(({ data }) => {
                 setProductData(data.products);
-            }
-        );
+            })
+            .catch((error) => {});
+
+        return () => {
+            abortController.abort();
+        };
     }, []);
 
     if (productData) {
