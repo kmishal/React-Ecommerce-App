@@ -3,15 +3,42 @@ import './ProductCard.scss';
 import StarIcon from '../Common/StarIcon';
 import WhishListIcon from '../Common/WhishListIcon';
 import CustomImage from '../Common/CustomImage';
+import { useContext } from 'react';
+import { appContext } from '../../Helpers/Context/AppContext';
+import { AddProductToCart } from '../../Helpers/Helper';
 
-export default function ProductCard({ product }) {
+const ProductCard = function ({ product }) {
+    const { setDrawerType, setCartItems } = useContext(appContext);
     let discountPrice = Math.ceil(
         product.price - (product.price * product.discountPercentage) / 100
     );
 
     const handleFormSubmit = function (productId, e) {
         e.preventDefault();
-        console.log(productId);
+        AddProductToCart(productId, ({ data }) => {
+            let productData = { ...data };
+            if (!productData.hasOwnProperty('quantity')) {
+                productData['quantity'] = 1;
+            }
+            setCartItems((prevCartItems) => {
+                const isItemPresent = prevCartItems.find(
+                    (item) => item.id === productData.id
+                );
+                if (isItemPresent) {
+                    return prevCartItems.map((item) => {
+                        if (item.id === productData.id) {
+                            item.quantity += 1;
+                            return item;
+                        } else {
+                            return item;
+                        }
+                    });
+                } else {
+                    return [productData, ...prevCartItems];
+                }
+            });
+            setDrawerType('cart-drawer');
+        });
     };
 
     return (
@@ -42,10 +69,10 @@ export default function ProductCard({ product }) {
                 </div>
             </div>
             <div className="product__card-details">
-                {/* Product Vendor */}
-                <h4 className="product__card-vendor">{product.brand}</h4>
                 {/* Product Title */}
                 <p className="product__card-title">{product.title}</p>
+                {/* Product Vendor */}
+                <h4 className="product__card-vendor">{product.brand}</h4>
                 <p className="product__card-price__wrapper">
                     {product.discountPercentage ? (
                         <>
@@ -65,4 +92,6 @@ export default function ProductCard({ product }) {
             </div>
         </div>
     );
-}
+};
+
+export default ProductCard;

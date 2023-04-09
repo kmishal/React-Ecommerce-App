@@ -1,5 +1,6 @@
 import './HeaderActions.scss';
 
+import CartIcon from '../../Common/CartIcon';
 export default function HeaderAction() {
     return (
         <div className="header__actions">
@@ -10,6 +11,7 @@ export default function HeaderAction() {
             <span>
                 <a href="/">SignUp</a>
             </span>
+            <CartIcon />
         </div>
     );
 }
