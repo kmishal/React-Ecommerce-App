@@ -1,10 +1,18 @@
 import './Drawer.scss';
 import { appContext } from '../../../Helpers/Context/AppContext';
-import { useContext } from 'react';
+import { useContext, useEffect } from 'react';
 
 export default function Drawer({ children, drawerTitle, drawerName }) {
     const { drawerType, setDrawerType } = useContext(appContext);
     const setDrawerActive = drawerName === drawerType;
+
+    useEffect(() => {
+        drawerType && (document.body.style.overflow = 'hidden');
+
+        return () => {
+            document.body.style.overflow = 'auto';
+        };
+    }, [drawerType]);
 
     const closeDrawer = (e) => {
         const targetEl = e.target;
