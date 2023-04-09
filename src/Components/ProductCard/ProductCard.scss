@@ -75,24 +75,5 @@
     }
     form {
         margin-top: 16px;
-        button {
-            &[type='submit'] {
-                width: 100%;
-                padding: 8px;
-                border: 0;
-                background: $black;
-                color: $white;
-                font-size: 14px;
-                line-height: 24px;
-                font-weight: $fnt-600;
-                cursor: pointer;
-                transition: all 0.3s ease-in;
-                border-radius: $border-radius;
-                &:hover {
-                    transition: all 0.3s ease-in;
-                    background: rgba($color: $black, $alpha: 0.6);
-                }
-            }
-        }
     }
 }
