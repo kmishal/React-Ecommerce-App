@@ -8,7 +8,7 @@ export default function Navigation() {
                     <NavLink to="/collection/all">Shop</NavLink>
                 </li>
                 <li className="nav__list-item">
-                    <NavLink to="/">Categories</NavLink>
+                    <NavLink to="/collectionList">Categories</NavLink>
                 </li>
             </ul>
         </nav>

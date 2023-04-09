@@ -3,7 +3,7 @@ import './CollectionCard.scss';
 
 const CollectionCard = function ({ collectionName }) {
     return (
-        <Link to={`/collection/${collectionName}`} class="collection__card">
+        <Link to={`/collection/${collectionName}`} className="collection__card">
             <div className="collection__card__aspectSize">
                 <div className="collection__card__title">{collectionName}</div>
                 <div className="collection__card__overlay"></div>
