@@ -7,7 +7,9 @@ const CollectionListGrid = function () {
     const [productCategories, setProductCategories] = useState(null);
 
     let collectionTemplate = (
-        <div class="collection__empty__template">Loading Collection List</div>
+        <div className="collection__empty__template">
+            Loading Collection List
+        </div>
     );
 
     useEffect(() => {
