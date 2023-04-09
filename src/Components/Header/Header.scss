@@ -1,5 +1,10 @@
+@import '../../styles/variables';
 .header {
     border-bottom: 1px solid rgba(0, 0, 0, 0.25);
+    position: sticky;
+    top: 0;
+    background: $white;
+    z-index: 2;
     &__wrapper {
         display: flex;
         justify-content: space-between;
