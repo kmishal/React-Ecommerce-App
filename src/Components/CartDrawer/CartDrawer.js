@@ -2,6 +2,7 @@ import { useContext } from 'react';
 import { appContext } from '../../Helpers/Context/AppContext';
 import LineItem from './LineItem';
 import './CartDrawer.scss';
+import { Link } from 'react-router-dom';
 
 export default function CartDrawer() {
     const { cartItems, setDrawerType } = useContext(appContext);
@@ -9,12 +10,13 @@ export default function CartDrawer() {
     let cartDrawerContent = (
         <div className="cart__drawer__empty-cart">
             <p className="empty__cart-message">Your Shopping List is Empty</p>
-            <div
+            <Link
+                to="/collection/all"
                 className="continue__shopping"
                 onClick={() => setDrawerType(null)}
             >
                 Continue Shopping
-            </div>
+            </Link>
         </div>
     );
 

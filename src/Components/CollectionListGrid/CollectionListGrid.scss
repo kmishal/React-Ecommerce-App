@@ -1,0 +1,21 @@
+@import '../../styles/variables';
+
+.collection__grid-layout {
+    padding: 64px 0;
+    .collection__main__info {
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        font-weight: $fnt-600;
+        &-title {
+            font-size: 23px;
+            text-transform: capitalize;
+        }
+    }
+    .collection__card__wrapper {
+        padding-top: 40px;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 32px;
+    }
+}

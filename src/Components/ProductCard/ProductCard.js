@@ -3,18 +3,20 @@ import './ProductCard.scss';
 import StarIcon from '../Common/StarIcon';
 import WhishListIcon from '../Common/WhishListIcon';
 import CustomImage from '../Common/CustomImage';
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import { appContext } from '../../Helpers/Context/AppContext';
 import { AddProductToCart } from '../../Helpers/Helper';
 
 const ProductCard = function ({ product }) {
     const { setDrawerType, setCartItems } = useContext(appContext);
+    const [buttonState, setButtonState] = useState('complete');
     let discountPrice = Math.ceil(
         product.price - (product.price * product.discountPercentage) / 100
     );
 
     const handleFormSubmit = function (productId, e) {
         e.preventDefault();
+        setButtonState('loading');
         AddProductToCart(productId, ({ data }) => {
             let productData = { ...data };
             if (!productData.hasOwnProperty('quantity')) {
@@ -38,6 +40,7 @@ const ProductCard = function ({ product }) {
                 }
             });
             setDrawerType('cart-drawer');
+            setButtonState('complete');
         });
     };
 
@@ -87,7 +90,17 @@ const ProductCard = function ({ product }) {
                 </p>
                 <form onSubmit={(e) => handleFormSubmit(product.id, e)}>
                     <input type="hidden" name="id" value={product.id} />
-                    <button type="submit">Add to cart</button>
+                    <button
+                        type="submit"
+                        disabled={buttonState === 'loading' ? 'disabled' : ''}
+                        className={
+                            buttonState === 'loading'
+                                ? 'button button__loading'
+                                : 'button'
+                        }
+                    >
+                        <span className="button__text">Add to cart </span>
+                    </button>
                 </form>
             </div>
         </div>

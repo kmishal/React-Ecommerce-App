@@ -1,11 +1,10 @@
-export async function FetchData(url) {
-    const controller = new AbortController();
+export async function FetchData(url, config) {
     const response = await fetch(url, {
-        signal: controller.signal,
+        ...config,
     });
     if (!response.ok) {
         throw new Error(response.status);
     }
     const data = await response.json();
-    return { data, controller };
+    return { data };
 }
