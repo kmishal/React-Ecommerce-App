@@ -1,5 +1,20 @@
 # Changelog
 
+## [1.2.0](https://github.com/kmishal/React-Ecommerce-app/compare/v1.1.0...v1.2.0) (2023-04-09)
+
+
+### Features
+
+* Add preloader to when product is added to cart ([9ac3e28](https://github.com/kmishal/React-Ecommerce-app/commit/9ac3e28230e5d9f860ccdf7b35503d4af0a42e35))
+* Add React Router to render collection List page ([509b8be](https://github.com/kmishal/React-Ecommerce-app/commit/509b8be3377bb2032ba6a9d743fa81467e13b15c))
+* Render collection list based on categories ([9a30f02](https://github.com/kmishal/React-Ecommerce-app/commit/9a30f0299907dbb51538b9231e488c4bbeb5533c))
+
+
+### Bug Fixes
+
+* Add abort controller to stop fetch request while transition from one route to another ([df19379](https://github.com/kmishal/React-Ecommerce-app/commit/df193792df19603d6352173ef97ba92c70c8daa8))
+* Force page redirect to products page when user is on root route ([a9d8f92](https://github.com/kmishal/React-Ecommerce-app/commit/a9d8f92e1aef77a28813be06d9e857083c7e963d))
+
 ## [1.1.0](https://github.com/kmishal/React-Ecommerce-app/compare/v1.0.0...v1.1.0) (2023-04-09)
 
 
