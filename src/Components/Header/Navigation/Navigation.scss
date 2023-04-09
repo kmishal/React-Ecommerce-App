@@ -12,13 +12,11 @@
                 &:hover {
                     text-decoration: underline;
                 }
-            }
-            &.active,
-            &:hover {
-                a {
+                &.active,
+                &:hover {
                     font-weight: $fnt-600;
                     color: $pink;
-                    transition: all 0.3s ease-in linear;
+                    transition: all 0.3s ease-in;
                 }
             }
         }
