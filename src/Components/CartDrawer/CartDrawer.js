@@ -11,7 +11,7 @@ export default function CartDrawer() {
         <div className="cart__drawer__empty-cart">
             <p className="empty__cart-message">Your Shopping List is Empty</p>
             <Link
-                to="/collection"
+                to="/collection/all"
                 className="continue__shopping"
                 onClick={() => setDrawerType(null)}
             >

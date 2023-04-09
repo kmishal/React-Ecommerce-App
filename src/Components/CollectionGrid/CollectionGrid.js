@@ -2,14 +2,22 @@ import './CollectionGrid.scss';
 import ProductCard from '../ProductCard/ProductCard';
 import { useEffect, useState } from 'react';
 import { FetchData } from '../../Helpers/Api';
+import { useParams } from 'react-router';
 
 export default function CollectionGrid() {
     const [productData, setProductData] = useState(null);
     const productCount = productData ? productData.length : null;
+    const { category } = useParams();
+    let fetchUrl;
+    if (category === 'all') {
+        fetchUrl = `https://dummyjson.com/products?limit=0`;
+    } else {
+        fetchUrl = `https://dummyjson.com/products/category/${category}?limit=0`;
+    }
     let productCards = null;
     useEffect(() => {
         const abortController = new AbortController();
-        FetchData('https://dummyjson.com/products/?limit=50', {
+        FetchData(fetchUrl, {
             signal: abortController.signal,
         })
             .then(({ data }) => {
@@ -20,7 +28,7 @@ export default function CollectionGrid() {
         return () => {
             abortController.abort();
         };
-    }, []);
+    }, [fetchUrl]);
 
     if (productData) {
         productCards = productData.map((product) => (

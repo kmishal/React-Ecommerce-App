@@ -16,7 +16,7 @@ function App() {
                     <Route exact path="/" element={<CollectionList />}></Route>
                     <Route
                         exact
-                        path="/collection"
+                        path="/collection/:category"
                         element={<Collections />}
                     ></Route>
                 </Routes>
