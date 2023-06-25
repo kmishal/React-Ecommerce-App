@@ -6,7 +6,6 @@ import CustomImage from '../Common/CustomImage';
 import { useContext, useState } from 'react';
 import { appContext } from '../../Helpers/Context/AppContext';
 import { AddProductToCart } from '../../Helpers/Helper';
-import { Link } from 'react-router-dom';
 
 const ProductCard = function ({ product }) {
     const { setDrawerType, setCartItems } = useContext(appContext);
@@ -74,12 +73,7 @@ const ProductCard = function ({ product }) {
             </div>
             <div className="product__card-details">
                 {/* Product Title */}
-                <Link
-                    to={`/product/${product.id}`}
-                    className="product__card-title"
-                >
-                    {product.title}
-                </Link>
+                <p className="product__card-title">{product.title}</p>
                 {/* Product Vendor */}
                 <h4 className="product__card-vendor">{product.brand}</h4>
                 <p className="product__card-price__wrapper">
