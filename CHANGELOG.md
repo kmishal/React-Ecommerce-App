@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.3.0](https://github.com/kmishal/React-Ecommerce-app/compare/v1.2.0...v1.3.0) (2023-06-25)
+
+
+### Features
+
+* Style rendered product information ([cdc4951](https://github.com/kmishal/React-Ecommerce-app/commit/cdc4951471494f6052694d89c95a3c73ad142764))
+
 ## [1.2.0](https://github.com/kmishal/React-Ecommerce-app/compare/v1.1.0...v1.2.0) (2023-04-09)
 
 
