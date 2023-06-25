@@ -4,6 +4,7 @@ import Collections from './Pages/Collections/Collections';
 import './App.scss';
 import AppContext from './Helpers/Context/AppContext';
 import CollectionList from './Pages/CollectionsList/CollectionList';
+import Product from './Pages/Product/Product';
 import {
     BrowserRouter as Router,
     Routes,
@@ -31,6 +32,11 @@ function App() {
                     <Route
                         path="/"
                         element={<Navigate to="/collection/all" />}
+                    ></Route>
+                    <Route
+                        exact
+                        path="/product/:productId"
+                        element={<Product />}
                     ></Route>
                 </Routes>
             </AppContext>
